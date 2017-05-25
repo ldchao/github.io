@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://ldchao.cn/Android Activity之间传递数据/index.html">
 <meta property="og:site_name" content="Ldchao&#39;s Blogs">
 <meta property="og:description" content="主要从以下四个方面介绍Android中数据传递：   传递简单数据 传递数据包–Bundle 传递值对象 获取Activity的返回参数">
-<meta property="og:updated_time" content="2017-05-25T15:59:23.083Z">
+<meta property="og:updated_time" content="2017-05-25T16:02:00.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Activity之间传递数据">
 <meta name="twitter:description" content="主要从以下四个方面介绍Android中数据传递：   传递简单数据 传递数据包–Bundle 传递值对象 获取Activity的返回参数">
@@ -417,14 +417,17 @@
 <li>传递简单数据</li>
 <li>传递数据包–Bundle</li>
 <li>传递值对象</li>
-<li>获取Activity的返回参数<a id="more"></a>
-##传递简单数据</li>
-<li>发送方通过intent.put*()来塞数据，如放String数据如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.putExtra(<span class="string">"data"</span>,<span class="string">"hello ldchao"</span>);</div></pre></td></tr></table></figure>
-</li>
+<li>获取Activity的返回参数</li>
 </ul>
 </blockquote>
+<a id="more"></a>
+<p>##传递简单数据</p>
 <ul>
-<li>接收方通过 getIntent()来获取intent，然后通过intent.get*Extra()来获取，如获取上一步放到输入通过：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.getStringExtra(<span class="string">"data"</span>)</div></pre></td></tr></table></figure>
+<li><p>发送方通过intent.put*()来塞数据，如放String数据如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.putExtra(<span class="string">"data"</span>,<span class="string">"hello ldchao"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>接收方通过 getIntent()来获取intent，然后通过intent.get*Extra()来获取，如获取上一步放到输入通过：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">intent.getStringExtra(<span class="string">"data"</span>)</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>##传递数据包Bundle<br>发送方通过bundle来封装数据包，然后放到intent里：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Bundle bundle=<span class="keyword">new</span> Bundle();</div><div class="line">bundle.putString(<span class="string">"name"</span>,<span class="string">"ldchao"</span>);</div><div class="line">bundle.putInt(<span class="string">"age"</span>,<span class="number">2</span>);</div><div class="line">intent.putExtras(bundle);<span class="comment">//也可以如2.3.1那样将bundle作为普通变量传接收方直接通过如下函数获取：</span></div><div class="line">Bundle bundle=intent.getExtras();</div><div class="line">String name=bundle.getString(<span class="string">"name"</span>);</div><div class="line"><span class="keyword">int</span> age=bundle.getInt(<span class="string">"age"</span>);</div></pre></td></tr></table></figure></p>
